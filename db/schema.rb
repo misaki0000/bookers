@@ -13,8 +13,6 @@
 ActiveRecord::Schema.define(version: 2022_07_08_151231) do
 
   create_table "books", force: :cascade do |t|
-    t.string "本のタイトル"
-    t.string "感想"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
