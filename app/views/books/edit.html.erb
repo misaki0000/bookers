@@ -1,6 +1,6 @@
 <h1>Editing Book</h1>
 
-<%= form_with model: @book do |f| %>
+<%= form_for(@book, url:{ controller: 'books', action: 'update', id: @book.id}) do |f| %>
 
 <h6>title</h6>
 <%= f.text_field :title %>
