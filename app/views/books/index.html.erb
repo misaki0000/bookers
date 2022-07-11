@@ -1,15 +1,5 @@
-<h3>Books</h3>
+<h1>Books</h1>
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<% @books.each do |book| %>
 <table>
  <thead>
   <tr>
@@ -18,6 +8,7 @@
   </tr>
  </thead>
  <tbody>
+ <% @books.each do |book| %>
   <tr>
    <td><%= book.title %></td>
    <td><%= book.body %></td>
@@ -27,22 +18,34 @@
     <%= link_to "destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
    </td>
   </tr>
+ <% end %>
  </tbody>
-
 </table>
-
-<% end %>
-
-<h3>Books</h3>
 
 <%= form_with model: @book do |f| %>
 
- <h3>New book</h3>
+ <h2>New book</h2>
+
+ <% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this book from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="field">
  <h6>Title</h6>
  <%= f.text_field :title %>
+</div>
 
+<div class="field">
  <h6>Body</h6>
  <%= f.text_area :body %>
+</div>
 
+<div class="actions">
  <%= f.submit 'Create Book' %>
 <% end %>
+</div>

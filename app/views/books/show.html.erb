@@ -1,14 +1,17 @@
-<h1>Books#show</h1>
+<!--<h1>Books#show</h1>-->
 
-<div class="text-success">
-  <%= flash[:notice] %>
-</div>
 
-<h6>title:</h6>
-<p><%= @book.title %></p>
+ <%= flash[:notice] %>
 
-<h6>body:</h6>
-<p><%= @book.body %></p>
+<p>
+<strong>title:</strong>
+<%= @book.title %>
+</p>
+
+<p>
+<strong>body:</strong>
+<%= @book.body %>
+</p>
 
 <%= link_to "edit", edit_book_path(@book.id) %>
 
